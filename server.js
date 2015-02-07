@@ -5,6 +5,10 @@ var Post = require('./models/post')
 var app = express();
 app.use(bodyParser.json());
 
+app.get('/', function(request,response) {
+  response.sendfile('layouts/posts.html');
+});
+
 app.get('/api/posts', function(request,response, next) {
   Post.find(function(err, posts) {
     if (err) { return next(err) };
