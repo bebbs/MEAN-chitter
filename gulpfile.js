@@ -5,6 +5,8 @@ var ngAnnotate = require('gulp-ng-annotate');
 
 gulp.task('js', function() {
   gulp.src(['angular/module.js', 'angular/**/*.js'])
+    .pipe(ngAnnotate())
+    .pipe(uglify())
     .pipe(concat('app.js'))
     .pipe(gulp.dest('assets'))
 });
